@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://photoflash.in/sitemap.xml
