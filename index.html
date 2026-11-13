@@ -21,7 +21,7 @@ h1,h2,h3{font-family:Fredoka,sans-serif;line-height:1.1;margin:0}
 .btn-wa{background:var(--wa);color:#fff}.btn-wa:hover{background:#178a42}
 .btn-ghost{background:#fff;color:var(--ink);border:2px solid var(--ink)}
 .eyebrow{font-weight:600;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--pink-d)}
-section{padding:80px 0}
+section{padding:80px 0;scroll-margin-top:64px}
 .sec-head{max-width:640px;margin-bottom:40px}
 .sec-head h2{font-size:clamp(32px,4vw,46px);margin:8px 0 12px}
 .sec-head p{color:var(--ink2);margin:0}
@@ -67,6 +67,34 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdro
 .card ul{margin:4px 0 0;padding-left:20px;color:var(--ink2)}
 .tag{align-self:flex-start;background:var(--yellow);color:var(--ink);font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;letter-spacing:.5px}
 .card .pic360{display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#1A1A2E,#3B1D4A)}
+
+/* video thumbs */
+.vthumb{position:relative;display:block;width:100%;height:100%;padding:0;border:0;margin:0;cursor:pointer;background:#111;overflow:hidden;font:inherit}
+.vthumb video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.vthumb:hover video{transform:scale(1.04)}
+.vthumb .play{position:absolute;left:50%;top:50%;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:50%;background:rgba(230,0,126,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s}
+.vthumb .play svg{margin-left:4px}
+.vthumb:hover .play,.vthumb:focus-visible .play{transform:scale(1.1)}
+.vthumb:focus-visible{outline:4px solid #FFC400;outline-offset:-4px}
+.vchip{position:absolute;left:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,.7);color:#fff;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px}
+/* video modal */
+.vmodal{position:fixed;inset:0;z-index:60;background:rgba(10,10,20,.97);display:flex;align-items:center;justify-content:center;padding:16px}
+.vmodal[hidden]{display:none}
+.vm-inner{width:min(440px,100%);display:flex;flex-direction:column;gap:12px}
+.vm-head{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#fff}
+.vm-head h3{font-size:22px}
+.vm-close{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.15);color:#fff;font-size:26px;line-height:1;cursor:pointer}
+.vm-close:hover{background:rgba(255,255,255,.28)}
+.vm-inner video{width:100%;max-height:calc(100vh - 190px);max-height:calc(100dvh - 190px);border-radius:18px;background:#000;object-fit:contain}
+.vm-foot{display:flex;gap:10px;flex-wrap:wrap}
+.vm-foot .btn{flex:1 1 180px}
+body.noscroll{overflow:hidden}
+/* scroll cue */
+.scroll-cue{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:25;display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;color:var(--ink);background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:999px;padding:8px 18px 6px;font-size:13px;font-weight:600;box-shadow:0 8px 24px rgba(26,26,46,.12);transition:opacity .3s,transform .3s}
+.scroll-cue svg{animation:bob 1.4s ease-in-out infinite}
+.scroll-cue.gone{opacity:0;pointer-events:none;transform:translate(-50%,12px)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@media(prefers-reduced-motion:reduce){.scroll-cue svg{animation:none}.vthumb video{transition:none}}
 
 /* addons */
 .addons{background:var(--soft)}
@@ -164,13 +192,14 @@ footer a{color:#fff}
 <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
 WhatsApp Us</a>
 </div>
+<a href="#booths" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-weight:600;color:var(--pink-d)"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#E6007E"/><path d="M10 8v8l6-4z" fill="#fff"/></svg>Watch our booths in action</a>
 <ul class="chips" aria-label="Events we cover">
 <li>Weddings</li><li>Birthdays</li><li>Corporate events</li><li>Festivals</li><li>Kids parties</li><li>Pet shows</li>
 </ul>
 </div>
 <div class="hero-pics">
 <img class="a" src="img/astronaut.jpg" alt="Astronaut theme photo booth with touch screen">
-<img class="b" src="img/kiosk.jpg" alt="Photo Flash standard photo booth with neon ring at an event">
+<img class="b" src="img/dslr-hero.jpg" alt="Photo Flash DSLR photo booth with pink neon ring at a banquet hall">
 </div>
 </div>
 </section>
@@ -184,11 +213,11 @@ WhatsApp Us</a>
 </div>
 <div class="cards">
 <article class="card">
-<div class="pic"><img src="img/kiosk.jpg" alt="Standard photo booth with screen and neon ring"></div>
+<div class="pic"><button type="button" class="vthumb" data-video="img/video/dslr.mp4" data-poster="img/video/dslr-poster.jpg" data-title="DSLR Photo Booth" data-service="DSLR Photo Booth" aria-label="Play DSLR Photo Booth video (0:30)"><video class="prev" src="img/video/dslr-preview.mp4" poster="img/video/dslr-poster.jpg" muted loop playsinline preload="none"></video><span class="play" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></span><span class="vchip"><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg>Watch video · 0:30</span></button></div>
 <div class="body">
 <span class="tag">MOST BOOKED</span>
-<h3>Standard Photo Booth</h3>
-<p>A sleek touch-screen booth with a neon ring and studio lighting. Guests tap, pose and get their print in seconds.</p>
+<h3>DSLR Photo Booth</h3>
+<p>A professional DSLR camera and studio lights for sharp, high-quality photos. Guests tap the neon-ring screen, pose and get their print in seconds.</p>
 <ul><li>Custom print frame with your event name</li><li>Instant prints for every guest</li><li>Backdrop and props available</li></ul>
 </div>
 </article>
@@ -198,7 +227,7 @@ WhatsApp Us</a>
 <span class="tag">CLASSIC LOOK</span>
 <h3>Wooden iPad Booth</h3>
 <p>A handcrafted wooden booth with an iPad camera and flash. Guests get their photos on their phones in seconds.</p>
-<ul><li>AirDrop photos straight to iPhones</li><li>Scan a QR code to download and share on any phone</li><li>Rustic look that suits every décor</li></ul>
+<ul><li>Photo strip prints guests take home</li><li>AirDrop photos straight to iPhones</li><li>Scan a QR code to download and share on any phone</li><li>Rustic look that suits every décor</li></ul>
 </div>
 </article>
 
@@ -226,7 +255,7 @@ WhatsApp Us</a>
 </div>
 </article>
 <article class="card">
-<div class="pic"><img src="img/astronaut.jpg" alt="Astronaut theme photo booth" style="object-position:center 20%"></div>
+<div class="pic"><button type="button" class="vthumb" data-video="img/video/astro.mp4" data-poster="img/video/astro-poster.jpg" data-title="Astronaut Theme Booth" data-service="Astronaut Theme Booth" aria-label="Play Astronaut Theme Booth video (0:19)"><video class="prev" src="img/video/astro-preview.mp4" poster="img/video/astro-poster.jpg" muted loop playsinline preload="none"></video><span class="play" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></span><span class="vchip"><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg>Watch video · 0:19</span></button></div>
 <div class="body">
 <span class="tag">CROWD FAVOURITE</span>
 <h3>Astronaut Theme Booth</h3>
@@ -251,7 +280,7 @@ WhatsApp Us</a>
 <div class="body"><h3>Instant Photo Prints</h3><p>Glossy prints with your custom frame, ready in seconds.</p></div>
 </article>
 <article class="addon">
-<div class="pic"><img src="img/magnet-cut.jpg" alt="Acrylic photo fridge magnet being made at a live stall"></div>
+<div class="pic" style="height:260px"><button type="button" class="vthumb" data-video="img/video/magnets.mp4" data-poster="img/video/magnets-poster.jpg" data-title="Photo Fridge Magnets" data-service="Fridge Magnets" aria-label="Play Photo Fridge Magnets video (0:37)"><video class="prev" src="img/video/magnets-preview.mp4" poster="img/video/magnets-poster.jpg" muted loop playsinline preload="none"></video><span class="play" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></span><span class="vchip"><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg>Watch video · 0:37</span></button></div>
 <div class="body"><h3>Photo Fridge Magnets</h3><p>Acrylic magnets made live at your event. Memories that stick.</p></div>
 </article>
 <article class="addon">
@@ -314,7 +343,7 @@ WhatsApp Us</a>
 <img src="img/dogshow.jpg" alt="Photo booth at a dog show with a golden retriever">
 <video src="img/print-clip.mp4" autoplay muted loop playsinline aria-label="Photo prints coming out of the printer"></video>
 <img src="img/magnet.jpg" alt="Acrylic magnet live stall preview screen">
-<img src="img/neon.jpg" alt="Standard photo booth with pink neon ring at a banquet hall">
+<img src="img/neon.jpg" alt="DSLR photo booth with pink neon ring at a banquet hall">
 <img src="img/printer.jpg" alt="Instant print strip coming out of the printer">
 </div>
 <div class="insta"><a class="btn btn-ghost" href="https://www.instagram.com/photoflash59/" target="_blank" rel="noopener">See more on Instagram</a></div>
@@ -354,7 +383,7 @@ WhatsApp Us</a>
 <fieldset>
 <legend>Services you're interested in</legend>
 <div class="checks">
-<label><input type="checkbox" name="services" value="Standard Photo Booth">Standard Photo Booth</label>
+<label><input type="checkbox" name="services" value="DSLR Photo Booth">DSLR Photo Booth</label>
 <label><input type="checkbox" name="services" value="Wooden iPad Booth">Wooden iPad Booth</label>
 <label><input type="checkbox" name="services" value="Astronaut Theme Booth">Astronaut Booth</label>
 <label><input type="checkbox" name="services" value="360 Video Booth">360° Video Booth</label>
@@ -378,6 +407,22 @@ WhatsApp Us</a>
 </div>
 </section>
 </main>
+
+<div class="vmodal" id="vmodal" role="dialog" aria-modal="true" aria-labelledby="vmTitle" hidden>
+<div class="vm-inner">
+<div class="vm-head"><h3 id="vmTitle">Video</h3><button type="button" class="vm-close" id="vmClose" aria-label="Close video">&times;</button></div>
+<video id="vmVideo" controls playsinline preload="metadata"></video>
+<div class="vm-foot">
+<a class="btn btn-pink" id="vmQuote" href="#quote">Get a quote for this</a>
+<a class="btn btn-wa js-wa" href="https://wa.me/916300651422" target="_blank" rel="noopener">WhatsApp Us</a>
+</div>
+</div>
+</div>
+
+<a class="scroll-cue" id="scrollCue" href="#booths" aria-label="Scroll down to see our booths">
+<span>Scroll to explore</span>
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#E6007E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+</a>
 
 <footer>
 <div class="wrap row">
@@ -403,6 +448,55 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 const form = document.getElementById('leadForm');
 const errEl = document.getElementById('formErr');
 const saveNote = document.getElementById('saveNote');
+
+/* ---- Scroll cue: hide once the visitor starts scrolling ---- */
+const cue = document.getElementById('scrollCue');
+const updCue = () => cue.classList.toggle('gone', window.scrollY > 120);
+window.addEventListener('scroll', updCue, { passive: true }); updCue();
+
+/* ---- Video previews: play muted loops only while on screen ---- */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const saveData = navigator.connection && navigator.connection.saveData;
+const previews = document.querySelectorAll('video.prev');
+if ('IntersectionObserver' in window && !reduceMotion && !saveData) {
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    const v = en.target;
+    if (en.isIntersecting) { v.play().catch(() => {}); } else { v.pause(); }
+  }), { threshold: 0.5 });
+  previews.forEach(v => io.observe(v));
+}
+
+/* ---- Video lightbox ---- */
+const modal = document.getElementById('vmodal');
+const mVideo = document.getElementById('vmVideo');
+const mTitle = document.getElementById('vmTitle');
+const mQuote = document.getElementById('vmQuote');
+let lastFocus = null, currentService = '';
+function openVideo(btn){
+  lastFocus = btn;
+  currentService = btn.dataset.service || '';
+  mTitle.textContent = btn.dataset.title;
+  mVideo.poster = btn.dataset.poster || '';
+  mVideo.src = btn.dataset.video;
+  modal.hidden = false; document.body.classList.add('noscroll');
+  previews.forEach(v => v.pause());
+  mVideo.play().catch(() => {});
+  document.getElementById('vmClose').focus();
+}
+function closeVideo(){
+  mVideo.pause(); mVideo.removeAttribute('src'); mVideo.load();
+  modal.hidden = true; document.body.classList.remove('noscroll');
+  if (lastFocus) lastFocus.focus();
+}
+document.querySelectorAll('.vthumb').forEach(b => b.addEventListener('click', () => openVideo(b)));
+document.getElementById('vmClose').addEventListener('click', closeVideo);
+modal.addEventListener('click', e => { if (e.target === modal) closeVideo(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeVideo(); });
+mQuote.addEventListener('click', () => {
+  closeVideo();
+  const box = form.querySelector('input[name="services"][value="' + currentService + '"]');
+  if (box && !box.checked) { box.checked = true; saveDraft(); }
+});
 
 /* ---- Auto-save draft until submitted ---- */
 function readForm(){
