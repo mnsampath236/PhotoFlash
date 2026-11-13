@@ -61,8 +61,12 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdro
 .links a{color:var(--ink);text-decoration:none;font-weight:500}
 .links a:hover{color:var(--pink)}
 .links a.btn,.links a.btn:hover{color:#fff}
-@media(max-width:900px){.links a.l{display:none}}
-@media(max-width:420px){.logo span{font-size:20px}.links .btn{padding:0 16px;font-size:15px;white-space:nowrap}}
+.links a.bro{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--pink-d);min-height:44px}
+@media(max-width:900px){.links a.l{display:none}.links{gap:14px}}
+@media(max-width:420px){.links a.bro{font-size:14px}.links a.bro svg{display:none}}
+@media(max-width:420px){.nav{gap:8px}.logo{gap:6px}.logo svg{width:32px;height:32px}.logo span{font-size:17px}.links{gap:10px}.links .btn{padding:0 13px;font-size:14px;min-height:42px;white-space:nowrap}}
+@media(max-width:380px){.wrap{padding:0 14px}.logo span{font-size:16px}.links{gap:8px}}
+@media(max-width:340px){.logo span{display:none}}
 
 /* hero */
 .hero{padding:60px 0 70px;background:radial-gradient(circle at 85% 20%,#FFE7F3 0,transparent 45%),radial-gradient(circle at 10% 90%,#FFF4CC 0,transparent 40%)}
@@ -219,6 +223,7 @@ footer a{color:#fff}
 <a class="l" href="#booths">Booths</a>
 <a class="l" href="#addons">Add-ons</a>
 <a class="l" href="#gallery">Gallery</a>
+<a class="bro" href="/photo-flash-brochure.pdf" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v6M9 15l3 3 3-3"/></svg>Brochure</a>
 <a class="btn btn-pink" href="#quote">Get a Quote</a>
 </nav>
 </div>
@@ -393,6 +398,7 @@ WhatsApp Us</a>
 <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1FAF54" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg><span>WhatsApp / Call: <a class="js-wa" href="https://wa.me/916300651422" target="_blank" rel="noopener">+91 63006 51422</a></span></li>
 <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#FFC400" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Email: <a href="mailto:kotastudio7@gmail.com">kotastudio7@gmail.com</a></span></li>
 <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#FF77BF" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Serving Hyderabad &amp; nearby</span></li>
+<li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#FFC400" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v6M9 15l3 3 3-3"/></svg><span><a href="/photo-flash-brochure.pdf" target="_blank" rel="noopener">Download our brochure (PDF)</a></span></li>
 <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg><span>Instagram: <a href="https://www.instagram.com/photoflash59/" target="_blank" rel="noopener">@photoflash59</a></span></li>
 </ul>
 </div>
@@ -458,7 +464,7 @@ WhatsApp Us</a>
 <footer>
 <div class="wrap row">
 <span>© <span id="yr">2026</span> Photo Flash · Photo booth &amp; 360° video booth rental, Hyderabad</span>
-<span><a href="https://www.instagram.com/photoflash59/" target="_blank" rel="noopener">Instagram</a> · <a href="mailto:kotastudio7@gmail.com">kotastudio7@gmail.com</a></span>
+<span><a href="/photo-flash-brochure.pdf" target="_blank" rel="noopener">Brochure</a> · <a href="https://www.instagram.com/photoflash59/" target="_blank" rel="noopener">Instagram</a> · <a href="mailto:kotastudio7@gmail.com">kotastudio7@gmail.com</a></span>
 </div>
 </footer>
 
